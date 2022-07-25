@@ -1,0 +1,22 @@
+services:
+  postgres:
+    image: postgres:14.3-bullseye
+    container_name: postgres
+    hostname: postgres
+    ports:
+      - 5432:5432
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+  rabbitmq:
+    image: rabbitmq:3.10.5-management-alpine
+    container_name: rabbitmq
+    hostname: rabbitmq
+    ports:
+      - 15672:15672
+      - 5672:5672
+    restart: always
+    environment:
+      - RABBITMQ_DEFAULT_USER=rabbitmq
+      - RABBITMQ_DEFAULT_PASS=rabbitmq
